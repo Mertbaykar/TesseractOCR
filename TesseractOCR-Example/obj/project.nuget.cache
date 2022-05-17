@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "fVg8hCQHmP6CkKl6KmqdNNY8IAWxvRHqcYCpG/oxqYG4bQimGDvZ8zCxk9/eqbSnwkYHZmbraxikxAOVa1+5ZQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR-Example\\TesseractOCR-Example.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.1\\microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\tesseractocr\\5.1.9\\tesseractocr.5.1.9.nupkg.sha512"
+  ],
+  "logs": []
+}
