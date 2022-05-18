@@ -15,7 +15,7 @@ namespace Tesseract.ConsoleDemo
             string fileName = "phototest.tif";
             string imagePath = Path.Combine(currentProjectDirectory, fileName);
 
-            string tessData = Directory.GetParent(workingDirectory).Parent.Parent.EnumerateDirectories("tessdata").FirstOrDefault().FullName;
+            string tessData = Directory.GetParent(workingDirectory).Root.EnumerateDirectories("tessdata").FirstOrDefault().FullName;
 
             #region Images Folder Handling
 
