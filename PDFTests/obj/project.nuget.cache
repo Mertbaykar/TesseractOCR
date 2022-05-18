@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "3aiJFz7U/QxmRJKeRe6ayMSIdobiLv2RBsPEmQKz511Qht14TRArK1bMHeWiHmVfUQ13W9LjLZv+Ns+a1dgtyw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\PDFTests\\PDFTests.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.1\\microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\pdfsharpnetstandard2\\1.51.4845\\pdfsharpnetstandard2.1.51.4845.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\tesseractocr\\5.1.9\\tesseractocr.5.1.9.nupkg.sha512"
+  ],
+  "logs": []
+}

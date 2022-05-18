@@ -5,9 +5,11 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractOCR-Example", "TesseractOCR-Example\TesseractOCR-Example.csproj", "{DC84DEA5-20FC-43C8-9974-2293DD38F864}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesseractOCR-ConvertToPDF-Example", "TesseractOCR-ConvertToPDF-Example\TesseractOCR-ConvertToPDF-Example.csproj", "{2CF8E23B-B8D7-4A54-AB9F-B13A3CFD892C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractOCR-ConvertToPDF-Example", "TesseractOCR-ConvertToPDF-Example\TesseractOCR-ConvertToPDF-Example.csproj", "{2CF8E23B-B8D7-4A54-AB9F-B13A3CFD892C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesseractOCR.Core", "TesseractOCR.Core\TesseractOCR.Core.csproj", "{FE85FB4D-4B5C-490F-AA00-0A91A2A7938F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractOCR.Helpers", "TesseractOCR.Helpers\TesseractOCR.Helpers.csproj", "{BC66D632-285D-4049-8DBC-0141C5894519}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFTests", "PDFTests\PDFTests.csproj", "{9AC3683E-4F94-4C22-9E51-4848A5BBA438}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,14 @@ Global
 		{2CF8E23B-B8D7-4A54-AB9F-B13A3CFD892C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CF8E23B-B8D7-4A54-AB9F-B13A3CFD892C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CF8E23B-B8D7-4A54-AB9F-B13A3CFD892C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE85FB4D-4B5C-490F-AA00-0A91A2A7938F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE85FB4D-4B5C-490F-AA00-0A91A2A7938F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE85FB4D-4B5C-490F-AA00-0A91A2A7938F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE85FB4D-4B5C-490F-AA00-0A91A2A7938F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC66D632-285D-4049-8DBC-0141C5894519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC66D632-285D-4049-8DBC-0141C5894519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC66D632-285D-4049-8DBC-0141C5894519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC66D632-285D-4049-8DBC-0141C5894519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC3683E-4F94-4C22-9E51-4848A5BBA438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC3683E-4F94-4C22-9E51-4848A5BBA438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC3683E-4F94-4C22-9E51-4848A5BBA438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC3683E-4F94-4C22-9E51-4848A5BBA438}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
