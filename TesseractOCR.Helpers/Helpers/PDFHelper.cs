@@ -3,12 +3,12 @@ using PdfSharp.Drawing;
 using PdfSharp.Drawing.Layout;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
+using MigraDoc.Rendering;
 using System.Text;
-//using System.Drawing.Imaging;
 using TesseractOCR;
 using TesseractOCR.Enums;
 using TesseractOCR.Pix;
-
+using MigraDoc.DocumentObjectModel;
 
 namespace TesseractOCR.Core
 {
@@ -89,7 +89,7 @@ namespace TesseractOCR.Core
                 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
                 XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode);
                 XFont font = new XFont("Arial", 12, XFontStyle.Regular, options);
-
+                Document document = new Document();
                 // Yazı için gereken alanı hesaplamak için gerekli width ve height bulunuyor.
                 var sizeOfText = gfx.MeasureString(text, font);
                 // DrawString'teki XRect için Width ve height set edilecek
@@ -102,7 +102,8 @@ namespace TesseractOCR.Core
 
                 double textWidthInPage = pdfPage.Width - (pdfPage.TrimMargins.Left + pdfPage.TrimMargins.Right);
                 double textHeightInPage = pdfPage.Height - (pdfPage.TrimMargins.Top + pdfPage.TrimMargins.Bottom);
-
+                //PdfDocumentRenderer pdfDocumentRenderer = new PdfDocumentRenderer();
+                //pdfDocumentRenderer.
                 double areaOfText = sizeOfText.Width * sizeOfText.Height;
                 double reservedTextAreaPerPage = textWidthInPage * textHeightInPage;
                 // -1 comes from initial page
@@ -112,6 +113,7 @@ namespace TesseractOCR.Core
                 
                 //double textTotalHeight = areaOfText / textWidthInPage;
                 XTextFormatter formatter = new XTextFormatter(gfx);
+
                 // Same layoutRectangle for each page
                 XRect layoutRectangle = new XRect(new XSize(pdfPage.Width, pdfPage.Height));
                 // Tüm pageler eklendikten sonra bu kısım çalışacak, bu kısım birden çok kere çalışacak
@@ -156,5 +158,12 @@ namespace TesseractOCR.Core
             pdfPage.TrimMargins.Bottom = new XUnit(30);
             return pdfPage;
         }
+
+        //public static List<string> GetStringForPDFPages(string text, XFont font, XSize size,System.Drawing.StringFormat stringFormat, out int charactersFitted, out int linesFilled)
+        //{
+        //    var graphics = System.Drawing.Graphics.FromHwnd(IntPtr.Zero);
+        //    graphics.MeasureString(text, new System.Drawing.Font(font.FontFamily.Name,float(font.Size)));
+
+        //}
     }
 }

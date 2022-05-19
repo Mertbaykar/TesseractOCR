@@ -106,9 +106,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "PDFsharpNetStandard2": {
+            "PDFsharp-MigraDoc-GDI": {
               "target": "Package",
-              "version": "[1.51.4845, )"
+              "version": "[1.50.5147, )"
             },
             "System.Drawing.Common": {
               "target": "Package",
