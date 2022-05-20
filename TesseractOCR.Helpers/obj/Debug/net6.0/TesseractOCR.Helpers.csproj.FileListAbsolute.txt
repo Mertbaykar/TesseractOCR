@@ -1,0 +1,16 @@
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\obj\Debug\net6.0\TesseractOCR.Helpers.csproj.AssemblyReference.cache
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\obj\Debug\net6.0\TesseractOCR.Helpers.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\obj\Debug\net6.0\TesseractOCR.Helpers.AssemblyInfoInputs.cache
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\obj\Debug\net6.0\TesseractOCR.Helpers.AssemblyInfo.cs
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\obj\Debug\net6.0\TesseractOCR.Helpers.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\bin\Debug\net6.0\x86\leptonica-1.82.0.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\bin\Debug\net6.0\x86\tesseract51.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\bin\Debug\net6.0\x64\leptonica-1.82.0.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\bin\Debug\net6.0\x64\tesseract51.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\bin\Debug\net6.0\TesseractOCR.Helpers.deps.json
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\bin\Debug\net6.0\TesseractOCR.Helpers.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\bin\Debug\net6.0\TesseractOCR.Helpers.pdb
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\obj\Debug\net6.0\TesseractOCR.Helpers.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\obj\Debug\net6.0\refint\TesseractOCR.Helpers.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\obj\Debug\net6.0\TesseractOCR.Helpers.pdb
+C:\Users\DELL\source\repos\TesseractOCR-Example\TesseractOCR.Helpers\obj\Debug\net6.0\ref\TesseractOCR.Helpers.dll

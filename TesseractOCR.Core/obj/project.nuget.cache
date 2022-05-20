@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "7wF9F/efLflwAS/Lt42wn5xs14vv0XRO/q23h//YcwnmoZprlfH7ubT2seTh7AiD4FQX6oeipeObYzxDOkK9WA==",
+  "dgSpecHash": "GfPpaAY1w4Ykr/qWVXXqrVEtGc7l+A7K4po++T5pHW7HYCzUhLDn2Y1O9t8dhBA084I8xHp3ziE7iSIknEtJ4g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\TesseractOCR.Core\\TesseractOCR.Core.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR.Core\\TesseractOCR.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\MertBaykar\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.1\\microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512",
-    "C:\\Users\\MertBaykar\\.nuget\\packages\\pdfsharp\\1.50.5147\\pdfsharp.1.50.5147.nupkg.sha512",
-    "C:\\Users\\MertBaykar\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
-    "C:\\Users\\MertBaykar\\.nuget\\packages\\tesseractocr\\5.1.9\\tesseractocr.5.1.9.nupkg.sha512"
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.1\\microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\pdfsharp\\1.50.5147\\pdfsharp.1.50.5147.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\tesseractocr\\5.1.9\\tesseractocr.5.1.9.nupkg.sha512"
   ],
   "logs": [
     {
