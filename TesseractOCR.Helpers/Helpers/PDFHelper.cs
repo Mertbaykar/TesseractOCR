@@ -9,6 +9,7 @@ using TesseractOCR;
 using TesseractOCR.Enums;
 using TesseractOCR.Pix;
 using MigraDoc.DocumentObjectModel;
+using TesseractOCR.Layout;
 
 namespace TesseractOCR.Core
 {
@@ -54,12 +55,9 @@ namespace TesseractOCR.Core
         {
             try
             {
-                PdfDocument pdfDocument = new PdfDocument();
 
-                if (!string.IsNullOrWhiteSpace(PDFtitle))
-                    pdfDocument.Info.Title = PDFtitle;
-
-                string text = "";
+                //string text = "";
+                List<string> textParagraphs = new List<string>();
 
                 // Extract text from single image
                 using (Engine engine = new Engine(dataPath, Language.English, EngineMode.TesseractAndLstm))
@@ -68,75 +66,58 @@ namespace TesseractOCR.Core
                     {
                         using (Page imagePage = engine.Process(image))
                         {
-                            text = imagePage.Text.ReplaceLineEndings(" ");
+                            using (Blocks blocks = imagePage.Layout)
+                            {
+                                foreach (Block block in blocks)
+                                {
+                                    foreach (Layout.Paragraph para in block.Paragraphs)
+                                    {
+                                        string paragraphToAdd = "";
+
+                                        foreach (TextLine textLine in para.TextLines)
+                                        {
+                                            string text = textLine.Text.ReplaceLineEndings(" ");
+                                            paragraphToAdd += text;
+                                        }
+                                        textParagraphs.Add(paragraphToAdd);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-                var textCopy = text;
-                for (int i = 0; i < 100; i++)
-                {
-                    text += textCopy;
-                }
+               
 
                 #region PDF Handling and Saving
-                // Initial Page
-                PdfPage pdfPage = pdfDocument.AddPage();
-                //PdfPage pdfPage = new PdfPage();
-                pdfPage.Size = PageSize.A4;
-                pdfPage.Orientation = PageOrientation.Portrait;
-                XGraphics gfx = XGraphics.FromPdfPage(pdfPage);
 
                 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-                XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode);
-                XFont font = new XFont("Arial", 12, XFontStyle.Regular, options);
+
                 Document document = new Document();
-                // Yazı için gereken alanı hesaplamak için gerekli width ve height bulunuyor.
-                var sizeOfText = gfx.MeasureString(text, font);
-                // DrawString'teki XRect için Width ve height set edilecek
-                // A4'ün boyutları üzerinden marginlere göre yazıya kalabilecek en fazla genişlik ve yükseklik bulunur
-                // XRect'in x ve y'sinin koordinatları marginlere göre belirlenecek (başlangıç noktası) ve her sayfada bu hesaba göre hareket edilecek.
-                pdfPage.TrimMargins.Left = new XUnit(30);
-                pdfPage.TrimMargins.Right = new XUnit(30);
-                pdfPage.TrimMargins.Top = new XUnit(30);
-                pdfPage.TrimMargins.Bottom = new XUnit(30);
+                PdfDocumentRenderer renderer = new PdfDocumentRenderer(true);
+                DefinePageSetup(document);
+                DefineStyle(document);
 
-                double textWidthInPage = pdfPage.Width - (pdfPage.TrimMargins.Left + pdfPage.TrimMargins.Right);
-                double textHeightInPage = pdfPage.Height - (pdfPage.TrimMargins.Top + pdfPage.TrimMargins.Bottom);
-                //PdfDocumentRenderer pdfDocumentRenderer = new PdfDocumentRenderer();
-                //pdfDocumentRenderer.
-                double areaOfText = sizeOfText.Width * sizeOfText.Height;
-                double reservedTextAreaPerPage = textWidthInPage * textHeightInPage;
-                // -1 comes from initial page
-                var pageCount = Convert.ToInt32(Math.Round(areaOfText / reservedTextAreaPerPage, MidpointRounding.ToPositiveInfinity)) - 1;
-                pdfDocument.PageLayout = PdfPageLayout.OneColumn;
-
-                
-                //double textTotalHeight = areaOfText / textWidthInPage;
-                XTextFormatter formatter = new XTextFormatter(gfx);
-
-                // Same layoutRectangle for each page
-                XRect layoutRectangle = new XRect(new XSize(pdfPage.Width, pdfPage.Height));
-                // Tüm pageler eklendikten sonra bu kısım çalışacak, bu kısım birden çok kere çalışacak
-                formatter.DrawString(text, font, XBrushes.Black, layoutRectangle);
-
-                if (pageCount > 0)
+                // Extend string just to see how it look on pages
+                var bla = textParagraphs;
+                for (int i = 0; i < 100; i++)
                 {
-                    // TODO: Text should be divided to pages based on it's area, and should be found the next part to write in next page
-                    // IMPORTANT: How to divide text based on layoutrectangle area should be found
-                    // Maybe check the point in each line and when page height equals to line's height, go next page and get the rest of other string per page
-
-                    for (int i = 0; i < pageCount; i++)
-                    {
-                        PdfPage nextPage = (PdfPage)pdfPage.Clone();
-                        pdfDocument.AddPage(nextPage);
-                        // Buradaki text ayarlanacak (sayfa bazında)
-                        formatter.DrawString(text, font, XBrushes.Black, layoutRectangle);
-                    }
+                    textParagraphs.Add(bla[i]);
                 }
 
-                
-                pdfDocument.Save(savePath);
-                return pdfDocument;
+                Section section = document.AddSection();
+                foreach (string paragraphs in textParagraphs)
+                {
+                    MigraDoc.DocumentObjectModel.Paragraph para = section.AddParagraph(paragraphs);
+                }
+
+                if (!string.IsNullOrWhiteSpace(PDFtitle))
+                    document.Info.Title = PDFtitle;
+
+                renderer.Document = document;
+                renderer.RenderDocument();
+                renderer.Save(savePath);
+                //pdfDocument.Save(savePath);
+                return renderer.PdfDocument;
                 #endregion
 
             }
@@ -147,16 +128,44 @@ namespace TesseractOCR.Core
 
         }
 
-        public static PdfPage ConfigurePdfPage(this PdfPage pdfPage)
+        public static PdfPage SetupPdfPage(this PdfPage pdfPage)
         {
             pdfPage.Size = PageSize.A4;
             pdfPage.Orientation = PageOrientation.Portrait;
-
             pdfPage.TrimMargins.Left = new XUnit(30);
             pdfPage.TrimMargins.Right = new XUnit(30);
             pdfPage.TrimMargins.Top = new XUnit(30);
             pdfPage.TrimMargins.Bottom = new XUnit(30);
             return pdfPage;
+        }
+
+        public static void DefineStyle(Document document)
+        {
+            Style style = document.Styles["Normal"];
+            // Because all styles are derived from Normal, the next line changes the 
+            // font of the whole document. Or, more exactly, it changes the font of
+            // all styles and paragraphs that do not redefine the font.
+            style.Font.Name = "Times New Roman";
+            style.Font.Bold = false;
+            style.Font.Color = Colors.Black;
+            style.ParagraphFormat.SpaceAfter = 4;
+            style.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
+            style.ParagraphFormat.FirstLineIndent = 12;
+            style.ParagraphFormat.LineSpacingRule = LineSpacingRule.Exactly;
+            style.ParagraphFormat.LineSpacing = 13;
+            style.ParagraphFormat.KeepTogether = true;
+            //style.ParagraphFormat.ListInfo.ListType = ListType.NumberList1;
+            //style.ParagraphFormat.ListInfo.NumberPosition = 3;
+        }
+
+        public static void DefinePageSetup(Document document)
+        {
+            document.DefaultPageSetup.Orientation = MigraDoc.DocumentObjectModel.Orientation.Portrait;
+            document.DefaultPageSetup.PageFormat = PageFormat.A4;
+            document.DefaultPageSetup.TopMargin = Unit.FromPoint(30);
+            document.DefaultPageSetup.BottomMargin = Unit.FromPoint(30);
+            document.DefaultPageSetup.LeftMargin = Unit.FromPoint(30);
+            document.DefaultPageSetup.RightMargin = Unit.FromPoint(30);
         }
 
         //public static List<string> GetStringForPDFPages(string text, XFont font, XSize size,System.Drawing.StringFormat stringFormat, out int charactersFitted, out int linesFilled)

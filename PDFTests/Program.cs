@@ -14,9 +14,10 @@ namespace Tesseract.ConsoleDemo
 
             string imagePath = Path.Combine(currentProjectDirectory, fileName);
             string savePath = Path.Combine(currentProjectDirectory, pdfFileName);
+            //string dataPath = Directory.GetParent(workingDirectory).Root.EnumerateDirectories("tessdata").FirstOrDefault().FullName;
             string dataPath = Directory.GetParent(workingDirectory).Root.EnumerateDirectories("tessdata").FirstOrDefault().FullName;
 
-           PDFHelper.SavePDFByImageText(dataPath,imagePath,savePath);
+            PDFHelper.SavePDFByImageText(dataPath,imagePath,savePath);
 
         }
     }
