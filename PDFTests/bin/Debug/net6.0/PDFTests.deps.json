@@ -38,14 +38,44 @@
           }
         }
       },
-      "PDFsharpNetStandard2/1.51.4845": {
-        "dependencies": {
-          "System.Drawing.Common": "6.0.0"
-        },
+      "PDFsharp-MigraDoc-gdi/1.50.5147": {
         "runtime": {
-          "lib/netstandard2.0/PDFsharp.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
+          "lib/net20/MigraDoc.DocumentObjectModel-gdi.dll": {
+            "assemblyVersion": "1.50.5147.0",
+            "fileVersion": "1.50.5147.0"
+          },
+          "lib/net20/MigraDoc.Rendering-gdi.dll": {
+            "assemblyVersion": "1.50.5147.0",
+            "fileVersion": "1.50.5147.0"
+          },
+          "lib/net20/MigraDoc.RtfRendering-gdi.dll": {
+            "assemblyVersion": "1.50.5147.0",
+            "fileVersion": "1.50.5147.0"
+          },
+          "lib/net20/PdfSharp-gdi.dll": {
+            "assemblyVersion": "1.50.5147.0",
+            "fileVersion": "1.50.5147.0"
+          },
+          "lib/net20/PdfSharp.Charting-gdi.dll": {
+            "assemblyVersion": "1.50.5147.0",
+            "fileVersion": "1.50.5147.0"
+          }
+        },
+        "resources": {
+          "lib/net20/de/MigraDoc.DocumentObjectModel-gdi.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net20/de/MigraDoc.Rendering-gdi.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net20/de/MigraDoc.RtfRendering-gdi.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net20/de/PdfSharp-gdi.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net20/de/PdfSharp.Charting-gdi.resources.dll": {
+            "locale": "de"
           }
         }
       },
@@ -95,7 +125,7 @@
       },
       "TesseractOCR.Helpers/1.0.0": {
         "dependencies": {
-          "PDFsharpNetStandard2": "1.51.4845",
+          "PDFsharp-MigraDoc-gdi": "1.50.5147",
           "System.Drawing.Common": "6.0.0",
           "System.Text.Encoding.CodePages": "6.0.0",
           "TesseractOCR": "5.1.9"
@@ -126,12 +156,12 @@
       "path": "microsoft.win32.systemevents/6.0.0",
       "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
     },
-    "PDFsharpNetStandard2/1.51.4845": {
+    "PDFsharp-MigraDoc-gdi/1.50.5147": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-M3eJmLeFxNY+2dZdsC0SjLyQISCLRWUJT960AzyzqjHxuFulToeNEkV5A56N0u+Y0vu3kx3B3i8dbBh6MgZxjA==",
-      "path": "pdfsharpnetstandard2/1.51.4845",
-      "hashPath": "pdfsharpnetstandard2.1.51.4845.nupkg.sha512"
+      "sha512": "sha512-hrPNGJ95aW03D9x2TYuadoR8bPh+pi/z6lYWspYU81QSjNAExy8F6+1dV5KBILZXu4R2dtawmX7SjKtCP8sEHg==",
+      "path": "pdfsharp-migradoc-gdi/1.50.5147",
+      "hashPath": "pdfsharp-migradoc-gdi.1.50.5147.nupkg.sha512"
     },
     "System.Drawing.Common/6.0.0": {
       "type": "package",
