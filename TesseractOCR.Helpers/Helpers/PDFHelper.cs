@@ -10,48 +10,17 @@ using TesseractOCR.Enums;
 using TesseractOCR.Pix;
 using MigraDoc.DocumentObjectModel;
 using TesseractOCR.Layout;
+using PdfSharp.Pdf.Content;
+using PdfSharp.Pdf.Content.Objects;
+using TesseractOCR.Helpers;
 
 namespace TesseractOCR.Core
 {
     public static class PDFHelper
     {
-        // Creates a PDF from a single image file, datapath: tessdata folder path
-        //public static PdfDocument SavePDFByImageText(this Image image, string dataPath, string savePath, string? PDFtitle = null)
-        //{
-        //    try
-        //    {
-        //        PdfDocument pdfDocument = new PdfDocument();
-        //        pdfDocument.PageLayout = PdfPageLayout.SinglePage;
+        #region Save PDF To Server
 
-        //        if (!string.IsNullOrWhiteSpace(PDFtitle))
-        //            pdfDocument.Info.Title = PDFtitle;
-
-        //        using (Engine engine = new Engine(dataPath, Language.English, EngineMode.TesseractAndLstm))
-        //        {
-        //            using (Page imagePage = engine.Process(image))
-        //            {
-        //                string text = imagePage.Text;
-        //                PdfPage pdfPage = pdfDocument.AddPage();
-        //                pdfPage.Size = PageSize.A4;
-        //                pdfPage.Orientation = PageOrientation.Portrait;
-        //                XGraphics gfx = XGraphics.FromPdfPage(pdfPage);
-        //                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-        //                XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode);
-        //                XFont font = new XFont("Arial", 12, XFontStyle.Regular, options);
-        //                gfx.DrawString(text, font, XBrushes.Black, new XRect(0, 0, pdfPage.Width, pdfPage.Height));
-        //                pdfDocument.Save(savePath);
-        //                return pdfDocument;
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception("Bir hata oluştu");
-        //    }
-
-        //}
-
-        public static PdfDocument SavePDFByImageText(string dataPath, string imagePath, string savePath, string? PDFtitle = null)
+        public static PdfDocument SavePDFByImageText(string dataPath, MemoryStream imageStream, string savePath, string? PDFtitle = null)
         {
             try
             {
@@ -62,7 +31,7 @@ namespace TesseractOCR.Core
                 // Extract text from single image
                 using (Engine engine = new Engine(dataPath, Language.English, EngineMode.TesseractAndLstm))
                 {
-                    using (Image image = Image.LoadFromFile(imagePath))
+                    using (Image image = Image.LoadFromMemory(imageStream))
                     {
                         using (Page imagePage = engine.Process(image))
                         {
@@ -86,7 +55,7 @@ namespace TesseractOCR.Core
                         }
                     }
                 }
-               
+
 
                 #region PDF Handling and Saving
 
@@ -128,6 +97,346 @@ namespace TesseractOCR.Core
 
         }
 
+        public static PdfDocument SavePDFByImageText(string dataPath, string imagePath, string savePath, string? PDFtitle = null)
+        {
+            try
+            {
+
+                //string text = "";
+                List<string> textParagraphs = new List<string>();
+
+                // Extract text from single image
+                using (Engine engine = new Engine(dataPath, Language.English, EngineMode.TesseractAndLstm))
+                {
+                    using (Image image = Image.LoadFromFile(imagePath))
+                    {
+                        using (Page imagePage = engine.Process(image))
+                        {
+                            using (Blocks blocks = imagePage.Layout)
+                            {
+                                foreach (Block block in blocks)
+                                {
+                                    foreach (Layout.Paragraph para in block.Paragraphs)
+                                    {
+                                        string paragraphToAdd = "";
+
+                                        foreach (TextLine textLine in para.TextLines)
+                                        {
+                                            string text = textLine.Text.ReplaceLineEndings(" ");
+                                            paragraphToAdd += text;
+                                        }
+                                        textParagraphs.Add(paragraphToAdd);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+                #region PDF Handling and Saving
+
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+                Document document = new Document();
+                PdfDocumentRenderer renderer = new PdfDocumentRenderer(true);
+                DefinePageSetup(document);
+                DefineStyle(document);
+
+                // Extend string just to see how it look on pages
+                var bla = textParagraphs;
+                for (int i = 0; i < 100; i++)
+                {
+                    textParagraphs.Add(bla[i]);
+                }
+
+                Section section = document.AddSection();
+                foreach (string paragraphs in textParagraphs)
+                {
+                    MigraDoc.DocumentObjectModel.Paragraph para = section.AddParagraph(paragraphs);
+                }
+
+                if (!string.IsNullOrWhiteSpace(PDFtitle))
+                    document.Info.Title = PDFtitle;
+
+                renderer.Document = document;
+                renderer.RenderDocument();
+                renderer.Save(savePath);
+                //pdfDocument.Save(savePath);
+                return renderer.PdfDocument;
+                #endregion
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Bir hata oluştu");
+            }
+
+        }
+        #endregion
+
+        #region Save PDF To Stream
+        public static PdfDocument SavePDFByImageText(string dataPath, MemoryStream imageStream, Stream streamToSave, bool closeStream, string? PDFtitle = null)
+        {
+            try
+            {
+
+                //string text = "";
+                List<string> textParagraphs = new List<string>();
+
+                // Extract text from single image
+                using (Engine engine = new Engine(dataPath, Language.English, EngineMode.TesseractAndLstm))
+                {
+                    using (Image image = Image.LoadFromMemory(imageStream))
+                    {
+                        using (Page imagePage = engine.Process(image))
+                        {
+                            using (Blocks blocks = imagePage.Layout)
+                            {
+                                foreach (Block block in blocks)
+                                {
+                                    foreach (Layout.Paragraph para in block.Paragraphs)
+                                    {
+                                        string paragraphToAdd = "";
+
+                                        foreach (TextLine textLine in para.TextLines)
+                                        {
+                                            string text = textLine.Text.ReplaceLineEndings(" ");
+                                            paragraphToAdd += text;
+                                        }
+                                        textParagraphs.Add(paragraphToAdd);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+                #region PDF Handling and Saving
+
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+                Document document = new Document();
+                PdfDocumentRenderer renderer = new PdfDocumentRenderer(true);
+                DefinePageSetup(document);
+                DefineStyle(document);
+
+                // Extend string just to see how it look on pages
+                var bla = textParagraphs;
+                for (int i = 0; i < 100; i++)
+                {
+                    textParagraphs.Add(bla[i]);
+                }
+
+                Section section = document.AddSection();
+                foreach (string paragraphs in textParagraphs)
+                {
+                    MigraDoc.DocumentObjectModel.Paragraph para = section.AddParagraph(paragraphs);
+                }
+
+                if (!string.IsNullOrWhiteSpace(PDFtitle))
+                    document.Info.Title = PDFtitle;
+
+                renderer.Document = document;
+                renderer.RenderDocument();
+                renderer.Save(streamToSave, closeStream);
+                //pdfDocument.Save(savePath);
+                return renderer.PdfDocument;
+                #endregion
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Bir hata oluştu");
+            }
+
+        }
+
+        public static PdfDocument SavePDFByImageText(string dataPath, string imagePath, Stream streamToSave, bool closeStream, string? PDFtitle = null)
+        {
+            try
+            {
+
+                //string text = "";
+                List<string> textParagraphs = new List<string>();
+
+                // Extract text from single image
+                using (Engine engine = new Engine(dataPath, Language.English, EngineMode.TesseractAndLstm))
+                {
+                    using (Image image = Image.LoadFromFile(imagePath))
+                    {
+                        using (Page imagePage = engine.Process(image))
+                        {
+                            using (Blocks blocks = imagePage.Layout)
+                            {
+                                foreach (Block block in blocks)
+                                {
+                                    foreach (Layout.Paragraph para in block.Paragraphs)
+                                    {
+                                        string paragraphToAdd = "";
+
+                                        foreach (TextLine textLine in para.TextLines)
+                                        {
+                                            string text = textLine.Text.ReplaceLineEndings(" ");
+                                            paragraphToAdd += text;
+                                        }
+                                        textParagraphs.Add(paragraphToAdd);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+                #region PDF Handling and Saving
+
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+                Document document = new Document();
+                PdfDocumentRenderer renderer = new PdfDocumentRenderer(true);
+                DefinePageSetup(document);
+                DefineStyle(document);
+
+                // Extend string just to see how it look on pages
+                var bla = textParagraphs;
+                for (int i = 0; i < 100; i++)
+                {
+                    textParagraphs.Add(bla[i]);
+                }
+
+                Section section = document.AddSection();
+                foreach (string paragraphs in textParagraphs)
+                {
+                    MigraDoc.DocumentObjectModel.Paragraph para = section.AddParagraph(paragraphs);
+                }
+
+                if (!string.IsNullOrWhiteSpace(PDFtitle))
+                    document.Info.Title = PDFtitle;
+
+                renderer.Document = document;
+                renderer.RenderDocument();
+                renderer.Save(streamToSave, closeStream);
+                //pdfDocument.Save(savePath);
+                return renderer.PdfDocument;
+                #endregion
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Bir hata oluştu");
+            }
+
+        }
+        #endregion
+
+
+        #region Save PDF To Server From Multiple Files
+        public static PdfDocument SavePDFByFiles(string dataPath, List<Stream> fileStreams, string savePath, string? PDFtitle = null)
+        {
+            try
+            {
+                //PdfReader.TestPdfFile(dataPath);
+
+                // Image text adding
+
+                List<string> textParagraphs = new List<string>();
+
+
+
+                foreach (Stream stream in fileStreams)
+                {
+                    // Bu aşamada dosyanın gerçekten resim dosyası olup olmadığını da kontrol edeceğiz.
+                    if (PdfReader.TestPdfFile(stream) == 0)
+                    {
+                        using (Engine engine = new Engine(dataPath, Language.English, EngineMode.TesseractAndLstm))
+                        {
+                            MemoryStream memoryStream = new MemoryStream();
+
+                            stream.CopyTo(memoryStream);
+
+                            using (Image image = Image.LoadFromMemory(memoryStream))
+                            {
+                                // Done with memoryStream
+                                memoryStream.Dispose();
+
+                                using (Page imagePage = engine.Process(image))
+                                {
+                                    using (Blocks blocks = imagePage.Layout)
+                                    {
+                                        foreach (Block block in blocks)
+                                        {
+                                            foreach (Layout.Paragraph para in block.Paragraphs)
+                                            {
+                                                string paragraphToAdd = "";
+
+                                                foreach (TextLine textLine in para.TextLines)
+                                                {
+                                                    string text = textLine.Text.ReplaceLineEndings(" ");
+                                                    paragraphToAdd += text;
+                                                }
+                                                textParagraphs.Add(paragraphToAdd);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                    // PDF ise
+                    else
+                    {
+                        string pdfText = PdfTextExtractor.GetText(stream);
+                    }
+                }
+                // Extract text from single image
+
+
+                #region PDF Handling and Saving
+
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+                Document document = new Document();
+                PdfDocumentRenderer renderer = new PdfDocumentRenderer(true);
+                DefinePageSetup(document);
+                DefineStyle(document);
+
+                // Extend string just to see how it look on pages
+                //var bla = textParagraphs;
+                //for (int i = 0; i < 100; i++)
+                //{
+                //    textParagraphs.Add(bla[i]);
+                //}
+
+                Section section = document.AddSection();
+                foreach (string paragraphs in textParagraphs)
+                {
+                    MigraDoc.DocumentObjectModel.Paragraph para = section.AddParagraph(paragraphs);
+                }
+
+                if (!string.IsNullOrWhiteSpace(PDFtitle))
+                    document.Info.Title = PDFtitle;
+
+                renderer.Document = document;
+                renderer.RenderDocument();
+                renderer.Save(savePath);
+                return renderer.PdfDocument;
+                #endregion
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Bir hata oluştu");
+            }
+
+        }
+
+        #endregion
+
+        #region Init PDF Styles
+
         public static PdfPage SetupPdfPage(this PdfPage pdfPage)
         {
             pdfPage.Size = PageSize.A4;
@@ -167,12 +476,7 @@ namespace TesseractOCR.Core
             document.DefaultPageSetup.LeftMargin = Unit.FromPoint(30);
             document.DefaultPageSetup.RightMargin = Unit.FromPoint(30);
         }
+        #endregion
 
-        //public static List<string> GetStringForPDFPages(string text, XFont font, XSize size,System.Drawing.StringFormat stringFormat, out int charactersFitted, out int linesFilled)
-        //{
-        //    var graphics = System.Drawing.Graphics.FromHwnd(IntPtr.Zero);
-        //    graphics.MeasureString(text, new System.Drawing.Font(font.FontFamily.Name,float(font.Size)));
-
-        //}
     }
 }

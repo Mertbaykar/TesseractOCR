@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractOCR-ConvertToPDF-E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesseractOCR.Helpers", "TesseractOCR.Helpers\TesseractOCR.Helpers.csproj", "{BC66D632-285D-4049-8DBC-0141C5894519}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFTests", "PDFTests\PDFTests.csproj", "{9AC3683E-4F94-4C22-9E51-4848A5BBA438}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PDFTests", "PDFTests\PDFTests.csproj", "{9AC3683E-4F94-4C22-9E51-4848A5BBA438}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleFilesToPDF-Example", "MultipleFilesToPDF-Example\MultipleFilesToPDF-Example.csproj", "{B32DB512-90A1-470D-B13B-F33AA45698F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9AC3683E-4F94-4C22-9E51-4848A5BBA438}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AC3683E-4F94-4C22-9E51-4848A5BBA438}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AC3683E-4F94-4C22-9E51-4848A5BBA438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B32DB512-90A1-470D-B13B-F33AA45698F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B32DB512-90A1-470D-B13B-F33AA45698F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B32DB512-90A1-470D-B13B-F33AA45698F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B32DB512-90A1-470D-B13B-F33AA45698F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
