@@ -1,18 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "q1qwPfaIGQ1e3LeDVzYM2nWDDPh59lB3mMuCZuAhSwyDZb3kM7jPoaxjthkUxOgqDBblKGYqexGkiNm6+4pPDA==",
+  "dgSpecHash": "WuZfCewtPUGiGe3FWGUiMZ20W2wEK0kJ//dvNZlVvuppkAn/D0u2de24AJtC6+D9MPUMiHr9AIu+UitoCzUq6A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR.Helpers\\TesseractOCR.Helpers.csproj",
+  "projectFilePath": "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\TesseractOCR.Helpers\\TesseractOCR.Helpers.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.1\\microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\pdfpig\\0.1.6\\pdfpig.0.1.6.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\pdfsharp-migradoc-gdi\\1.50.5147\\pdfsharp-migradoc-gdi.1.50.5147.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\tesseractocr\\5.1.9\\tesseractocr.5.1.9.nupkg.sha512"
+    "C:\\Users\\MertBaykar\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.1\\microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512",
+    "C:\\Users\\MertBaykar\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\MertBaykar\\.nuget\\packages\\pdfsharp-migradoc-gdi\\1.50.5147\\pdfsharp-migradoc-gdi.1.50.5147.nupkg.sha512",
+    "C:\\Users\\MertBaykar\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\MertBaykar\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\MertBaykar\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\MertBaykar\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512",
+    "C:\\Users\\MertBaykar\\.nuget\\packages\\tesseractocr\\5.1.9\\tesseractocr.5.1.9.nupkg.sha512"
   ],
   "logs": [
     {
