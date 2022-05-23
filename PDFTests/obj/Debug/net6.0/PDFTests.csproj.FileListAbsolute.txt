@@ -76,3 +76,10 @@ C:\Users\DELL\source\repos\TesseractOCR-Example\PDFTests\bin\Debug\net6.0\de\Mig
 C:\Users\DELL\source\repos\TesseractOCR-Example\PDFTests\bin\Debug\net6.0\de\MigraDoc.RtfRendering-gdi.resources.dll
 C:\Users\DELL\source\repos\TesseractOCR-Example\PDFTests\bin\Debug\net6.0\de\PdfSharp-gdi.resources.dll
 C:\Users\DELL\source\repos\TesseractOCR-Example\PDFTests\bin\Debug\net6.0\de\PdfSharp.Charting-gdi.resources.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\PDFTests\bin\Debug\net6.0\UglyToad.PdfPig.Core.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\PDFTests\bin\Debug\net6.0\UglyToad.PdfPig.DocumentLayoutAnalysis.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\PDFTests\bin\Debug\net6.0\UglyToad.PdfPig.Fonts.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\PDFTests\bin\Debug\net6.0\UglyToad.PdfPig.Package.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\PDFTests\bin\Debug\net6.0\UglyToad.PdfPig.Tokenization.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\PDFTests\bin\Debug\net6.0\UglyToad.PdfPig.Tokens.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\PDFTests\bin\Debug\net6.0\UglyToad.PdfPig.dll

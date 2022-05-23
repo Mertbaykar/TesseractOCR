@@ -37,3 +37,10 @@ C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\obj\D
 C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\obj\Debug\net6.0\MultipleFilesToPDF-Example.pdb
 C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\obj\Debug\net6.0\MultipleFilesToPDF-Example.genruntimeconfig.cache
 C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\obj\Debug\net6.0\ref\MultipleFilesToPDF-Example.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\bin\Debug\net6.0\UglyToad.PdfPig.Core.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\bin\Debug\net6.0\UglyToad.PdfPig.DocumentLayoutAnalysis.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\bin\Debug\net6.0\UglyToad.PdfPig.Fonts.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\bin\Debug\net6.0\UglyToad.PdfPig.Package.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\bin\Debug\net6.0\UglyToad.PdfPig.Tokenization.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\bin\Debug\net6.0\UglyToad.PdfPig.Tokens.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\bin\Debug\net6.0\UglyToad.PdfPig.dll

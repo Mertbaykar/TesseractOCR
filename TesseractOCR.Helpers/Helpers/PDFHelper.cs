@@ -337,13 +337,8 @@ namespace TesseractOCR.Core
         {
             try
             {
-                //PdfReader.TestPdfFile(dataPath);
-
-                // Image text adding
 
                 List<string> textParagraphs = new List<string>();
-
-
 
                 foreach (Stream stream in fileStreams)
                 {
@@ -388,7 +383,8 @@ namespace TesseractOCR.Core
                     // PDF ise
                     else
                     {
-                        string pdfText = PdfTextExtractor.GetText(stream);
+                        string pdfText = PdfTextExtractor.GetPDFTextByPages(stream);
+                        textParagraphs.Add(pdfText);
                     }
                 }
                 // Extract text from single image
@@ -401,7 +397,7 @@ namespace TesseractOCR.Core
                 Document document = new Document();
                 PdfDocumentRenderer renderer = new PdfDocumentRenderer(true);
                 DefinePageSetup(document);
-                DefineStyle(document);
+                DefineStyleForMultipleFiles(document);
 
                 // Extend string just to see how it look on pages
                 //var bla = textParagraphs;
@@ -463,6 +459,26 @@ namespace TesseractOCR.Core
             style.ParagraphFormat.LineSpacingRule = LineSpacingRule.Exactly;
             style.ParagraphFormat.LineSpacing = 13;
             style.ParagraphFormat.KeepTogether = true;
+            //style.ParagraphFormat.ListInfo.ListType = ListType.NumberList1;
+            //style.ParagraphFormat.ListInfo.NumberPosition = 3;
+        }
+
+        public static void DefineStyleForMultipleFiles(Document document)
+        {
+            Style style = document.Styles["Normal"];
+            // Because all styles are derived from Normal, the next line changes the 
+            // font of the whole document. Or, more exactly, it changes the font of
+            // all styles and paragraphs that do not redefine the font.
+            style.Font.Name = "Times New Roman";
+            style.Font.Bold = false;
+            style.Font.Color = Colors.Black;
+            style.ParagraphFormat.SpaceAfter = 4;
+            style.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
+            style.ParagraphFormat.FirstLineIndent = 12;
+            style.ParagraphFormat.LineSpacingRule = LineSpacingRule.Exactly;
+            style.ParagraphFormat.LineSpacing = 13;
+            //style.ParagraphFormat.KeepTogether = false;
+            //style.ParagraphFormat.KeepWithNext = true;
             //style.ParagraphFormat.ListInfo.ListType = ListType.NumberList1;
             //style.ParagraphFormat.ListInfo.NumberPosition = 3;
         }

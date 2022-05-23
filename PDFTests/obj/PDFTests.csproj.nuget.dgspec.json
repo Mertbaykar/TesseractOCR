@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\PDFTests\\PDFTests.csproj": {}
+    "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\PDFTests\\PDFTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\PDFTests\\PDFTests.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\PDFTests\\PDFTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\PDFTests\\PDFTests.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\PDFTests\\PDFTests.csproj",
         "projectName": "PDFTests",
-        "projectPath": "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\PDFTests\\PDFTests.csproj",
-        "packagesPath": "C:\\Users\\MertBaykar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\PDFTests\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\PDFTests\\PDFTests.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\PDFTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\MertBaykar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -31,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\TesseractOCR.Helpers\\TesseractOCR.Helpers.csproj": {
-                "projectPath": "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\TesseractOCR.Helpers\\TesseractOCR.Helpers.csproj"
+              "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR.Helpers\\TesseractOCR.Helpers.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR.Helpers\\TesseractOCR.Helpers.csproj"
               }
             }
           }
@@ -61,24 +62,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\TesseractOCR.Helpers\\TesseractOCR.Helpers.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR.Helpers\\TesseractOCR.Helpers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\TesseractOCR.Helpers\\TesseractOCR.Helpers.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR.Helpers\\TesseractOCR.Helpers.csproj",
         "projectName": "TesseractOCR.Helpers",
-        "projectPath": "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\TesseractOCR.Helpers\\TesseractOCR.Helpers.csproj",
-        "packagesPath": "C:\\Users\\MertBaykar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\TesseractOCR.Helpers\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR.Helpers\\TesseractOCR.Helpers.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR.Helpers\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\MertBaykar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -140,7 +142,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

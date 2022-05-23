@@ -8,6 +8,7 @@
 //using PdfSharp.Pdf.IO;
 
 
+using TesseractOCR.Layout;
 using UglyToad.PdfPig;
 using UglyToad.PdfPig.Content;
 
@@ -16,20 +17,24 @@ namespace TesseractOCR.Helpers
     public static class PdfTextExtractor
     {
 
-        public static void GetPageText(Stream pdfStream)
+        public static string GetPDFTextByPages(Stream pdfStream)
         {
+            string sectionTexts = string.Empty; 
+
             using (PdfDocument pdfDocument = PdfDocument.Open(pdfStream))
             {
-                foreach (Page page in pdfDocument.GetPages())
-                {
-                    string pageText = page.Layout
+                List<string> words = new List<string>();
 
-                    foreach (Word word in page.GetWords())
+                foreach (UglyToad.PdfPig.Content.Page page in pdfDocument.GetPages())
+                {
+                    foreach (var word in page.GetWords())
                     {
-                        Console.WriteLine(word.Text);
+                        words.Add(word.Text);
                     }
                 }
+               sectionTexts = string.Join(" ", words);
             }
+            return sectionTexts;
         }
 
 
