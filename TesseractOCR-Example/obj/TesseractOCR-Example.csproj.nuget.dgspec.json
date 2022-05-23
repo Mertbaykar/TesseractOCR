@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR-Example\\TesseractOCR-Example.csproj": {}
+    "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\TesseractOCR-Example\\TesseractOCR-Example.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR-Example\\TesseractOCR-Example.csproj": {
+    "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\TesseractOCR-Example\\TesseractOCR-Example.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR-Example\\TesseractOCR-Example.csproj",
+        "projectUniqueName": "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\TesseractOCR-Example\\TesseractOCR-Example.csproj",
         "projectName": "TesseractOCR-Example",
-        "projectPath": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR-Example\\TesseractOCR-Example.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\TesseractOCR-Example\\obj\\",
+        "projectPath": "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\TesseractOCR-Example\\TesseractOCR-Example.csproj",
+        "packagesPath": "C:\\Users\\MertBaykar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MertBaykar\\source\\repos\\TesseractOCR\\TesseractOCR-Example\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\MertBaykar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
