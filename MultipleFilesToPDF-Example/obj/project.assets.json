@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Ghostscript.NET/1.2.3": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Ghostscript.NET.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Ghostscript.NET.dll": {}
+        }
+      },
       "Microsoft.Extensions.Logging.Abstractions/6.0.1": {
         "type": "package",
         "compile": {
@@ -174,6 +183,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Ghostscript.NET": "1.2.3",
           "PDFsharp-MigraDoc-GDI": "1.50.5147",
           "PdfPig": "0.1.6",
           "System.Drawing.Common": "6.0.0",
@@ -190,6 +200,19 @@
     }
   },
   "libraries": {
+    "Ghostscript.NET/1.2.3": {
+      "sha512": "htQfv5J7ND1ASHumWqJSi9jXJl/RlsZvPzYj2kS4RlYgcPLsJflBAqqPqk21QjY9RAcgOXkSaxxL38rCc8ltsA==",
+      "type": "package",
+      "path": "ghostscript.net/1.2.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ghostscript.net.1.2.3.nupkg.sha512",
+        "ghostscript.net.nuspec",
+        "lib/net40/Ghostscript.NET.dll",
+        "lib/net40/Ghostscript.NET.xml"
+      ]
+    },
     "Microsoft.Extensions.Logging.Abstractions/6.0.1": {
       "sha512": "dzB2Cgg+JmrouhjkcQGzSFjjvpwlq353i8oBQO2GWNjCXSzhbtBRUf28HSauWe7eib3wYOdb3tItdjRwAdwCSg==",
       "type": "package",
@@ -766,6 +789,16 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Ghostscript.NET 1.2.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Ghostscript.NET",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

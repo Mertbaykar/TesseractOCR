@@ -429,6 +429,104 @@ namespace TesseractOCR.Core
 
         }
 
+        public static PdfDocument SavePDFByFilesTest(string dataPath, List<Stream> fileStreams, string savePath, string? PDFtitle = null)
+        {
+            try
+            {
+
+                List<string> textParagraphs = new List<string>();
+
+                foreach (Stream stream in fileStreams)
+                {
+                    // Bu aşamada dosyanın gerçekten resim dosyası olup olmadığını da kontrol edeceğiz.
+                    if (PdfReader.TestPdfFile(stream) == 0)
+                    {
+                        using (Engine engine = new Engine(dataPath, Language.English, EngineMode.TesseractAndLstm))
+                        {
+                            MemoryStream memoryStream = new MemoryStream();
+
+                            stream.CopyTo(memoryStream);
+
+                            using (Image image = Image.LoadFromMemory(memoryStream))
+                            {
+                                // Done with memoryStream
+                                memoryStream.Dispose();
+
+                                using (Page imagePage = engine.Process(image))
+                                {
+                                    using (Blocks blocks = imagePage.Layout)
+                                    {
+                                        foreach (Block block in blocks)
+                                        {
+                                            foreach (Layout.Paragraph para in block.Paragraphs)
+                                            {
+                                                string paragraphToAdd = "";
+
+                                                foreach (TextLine textLine in para.TextLines)
+                                                {
+                                                    string text = textLine.Text.ReplaceLineEndings(" ");
+                                                    paragraphToAdd += text;
+                                                }
+                                                textParagraphs.Add(paragraphToAdd);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                    // PDF ise
+                    else
+                    {
+                        string pdfText = PdfTextExtractor.GetPDFTextByPages(stream);
+                        textParagraphs.Add(pdfText);
+                        
+                    }
+                }
+                // Extract text from single image
+
+
+                #region PDF Handling and Saving
+
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+                Document document = new Document();
+                PdfDocumentRenderer renderer = new PdfDocumentRenderer(true);
+                DefinePageSetup(document);
+                DefineStyleForMultipleFiles(document);
+
+                // Extend string just to see how it look on pages
+                //var bla = textParagraphs;
+                //for (int i = 0; i < 100; i++)
+                //{
+                //    textParagraphs.Add(bla[i]);
+                //}
+
+                Section section = document.AddSection();
+                foreach (string paragraphs in textParagraphs)
+                {
+                    MigraDoc.DocumentObjectModel.Paragraph para = section.AddParagraph(paragraphs);
+                }
+
+                if (!string.IsNullOrWhiteSpace(PDFtitle))
+                    document.Info.Title = PDFtitle;
+
+                renderer.Document = document;
+                renderer.RenderDocument();
+                renderer.Save(savePath);
+                return renderer.PdfDocument;
+                #endregion
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Bir hata oluştu");
+            }
+
+        }
+
+
         #endregion
 
         #region Init PDF Styles

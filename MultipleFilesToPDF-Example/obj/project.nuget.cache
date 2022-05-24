@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "EwzYh/SIGm4l5zLMYU4t4bIoPSVS99Hp/3rgXZyYtE7DLw49eK9kfKyTvgftVPCph03q4GSU+zQC2YKp58gkuA==",
+  "dgSpecHash": "gomNqTBCmrET75so/6F2uHnUr+jG6zBOXMqZUHrxGsn7Qa3aXFhCan/qHnf4mA6/3ho1BY98O/CxlcVD97rtNw==",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\source\\repos\\TesseractOCR-Example\\MultipleFilesToPDF-Example\\MultipleFilesToPDF-Example.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\ghostscript.net\\1.2.3\\ghostscript.net.1.2.3.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.1\\microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\pdfpig\\0.1.6\\pdfpig.0.1.6.nupkg.sha512",
@@ -15,6 +16,16 @@
     "C:\\Users\\DELL\\.nuget\\packages\\tesseractocr\\5.1.9\\tesseractocr.5.1.9.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Ghostscript.NET 1.2.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Ghostscript.NET",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",
