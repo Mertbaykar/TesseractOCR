@@ -26,7 +26,7 @@ namespace Tesseract.ConsoleDemo
                 FileStream pdfStream = new FileStream(pdfPath, FileMode.Open, FileAccess.Read);
                 streamCollection.Streams.Add(imageStream);
                 streamCollection.Streams.Add(pdfStream);
-                PDFHelper.SavePDFByFiles(dataPath, streamCollection.Streams,mergedFilePath);
+                PDFHelper.SavePDFByFilesTest(dataPath, streamCollection.Streams,mergedFilePath);
             }
             //PDFHelper.SavePDFByImageText(dataPath, imagePath, savePath);
 

@@ -14,6 +14,14 @@
           "MultipleFilesToPDF-Example.dll": {}
         }
       },
+      "Ghostscript.NET/1.2.3": {
+        "runtime": {
+          "lib/net40/Ghostscript.NET.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
+          }
+        }
+      },
       "Microsoft.Extensions.Logging.Abstractions/6.0.1": {
         "runtime": {
           "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll": {
@@ -157,6 +165,7 @@
       },
       "TesseractOCR.Helpers/1.0.0": {
         "dependencies": {
+          "Ghostscript.NET": "1.2.3",
           "PDFsharp-MigraDoc-gdi": "1.50.5147",
           "PdfPig": "0.1.6",
           "System.Drawing.Common": "6.0.0",
@@ -174,6 +183,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Ghostscript.NET/1.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-htQfv5J7ND1ASHumWqJSi9jXJl/RlsZvPzYj2kS4RlYgcPLsJflBAqqPqk21QjY9RAcgOXkSaxxL38rCc8ltsA==",
+      "path": "ghostscript.net/1.2.3",
+      "hashPath": "ghostscript.net.1.2.3.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging.Abstractions/6.0.1": {
       "type": "package",

@@ -44,3 +44,4 @@ C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\bin\D
 C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\bin\Debug\net6.0\UglyToad.PdfPig.Tokenization.dll
 C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\bin\Debug\net6.0\UglyToad.PdfPig.Tokens.dll
 C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\bin\Debug\net6.0\UglyToad.PdfPig.dll
+C:\Users\DELL\source\repos\TesseractOCR-Example\MultipleFilesToPDF-Example\bin\Debug\net6.0\Ghostscript.NET.dll

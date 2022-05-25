@@ -13,6 +13,7 @@ using TesseractOCR.Layout;
 using PdfSharp.Pdf.Content;
 using PdfSharp.Pdf.Content.Objects;
 using TesseractOCR.Helpers;
+using TesseractOCR.Helpers.Helpers;
 
 namespace TesseractOCR.Core
 {
@@ -479,9 +480,8 @@ namespace TesseractOCR.Core
                     // PDF ise
                     else
                     {
-                        string pdfText = PdfTextExtractor.GetPDFTextByPages(stream);
-                        textParagraphs.Add(pdfText);
-                        
+                        List<string> pdfPageText = TesseractHelper.GetPDFPageText(stream,dataPath);
+                        textParagraphs.Concat(pdfPageText);
                     }
                 }
                 // Extract text from single image
