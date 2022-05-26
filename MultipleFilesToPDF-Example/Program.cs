@@ -11,13 +11,12 @@ namespace Tesseract.ConsoleDemo
             string workingDirectory = Environment.CurrentDirectory;
             string currentProjectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
             string fileName = "phototest.tif";
-            string pdfFileName = "test.pdf";
+            string pdfFileName = "sample.pdf";
             string mergedFileName = "merge.pdf";
 
             string imagePath = Path.Combine(currentProjectDirectory, fileName);
             string pdfPath = Path.Combine(currentProjectDirectory, pdfFileName);
             string mergedFilePath = Path.Combine(currentProjectDirectory, mergedFileName);
-            //string dataPath = Directory.GetParent(workingDirectory).Root.EnumerateDirectories("tessdata").FirstOrDefault().FullName;
             string dataPath = Directory.GetParent(workingDirectory).Root.EnumerateDirectories("tessdata").FirstOrDefault().FullName;
 
             using (StreamCollection streamCollection = new StreamCollection())

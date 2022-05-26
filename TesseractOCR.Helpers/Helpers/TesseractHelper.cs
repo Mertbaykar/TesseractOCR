@@ -1,18 +1,18 @@
-﻿using PdfSharp;
-using PdfSharp.Drawing;
-using PdfSharp.Drawing.Layout;
-using PdfSharp.Pdf;
-using PdfSharp.Pdf.IO;
-using MigraDoc.Rendering;
+﻿//using PdfSharp;
+//using PdfSharp.Drawing;
+//using PdfSharp.Drawing.Layout;
+//using PdfSharp.Pdf;
+//using PdfSharp.Pdf.IO;
+//using MigraDoc.Rendering;
 using System.Text;
 using TesseractOCR;
 using TesseractOCR.Enums;
 using TesseractOCR.Pix;
-using MigraDoc.DocumentObjectModel;
+//using MigraDoc.DocumentObjectModel;
 using TesseractOCR.Layout;
-using PdfSharp.Pdf.Content;
-using PdfSharp.Pdf.Content.Objects;
-using PdfSharp.Pdf.Advanced;
+//using PdfSharp.Pdf.Content;
+//using PdfSharp.Pdf.Content.Objects;
+//using PdfSharp.Pdf.Advanced;
 //using Ghostscript.NET.Interpreter;
 //using Ghostscript.NET.Processor;
 //using Ghostscript.NET.Viewer;
@@ -29,7 +29,7 @@ namespace TesseractOCR.Helpers.Helpers
 
             try
             {
-                int dpi = 150;
+                int dpi = 100;
                 GhostscriptVersionInfo lastInstalledVersion =
                GhostscriptVersionInfo.GetLastInstalledVersion(
                        GhostscriptLicense.GPL | GhostscriptLicense.AFPL,
@@ -50,7 +50,7 @@ namespace TesseractOCR.Helpers.Helpers
                             MemoryStream memoryStream = new MemoryStream();
 
                             //pdfStream.CopyTo(memoryStream);
-                            pageImage.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            pageImage.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
 
                             using (Image image = Image.LoadFromMemory(memoryStream))
                             {
@@ -87,7 +87,7 @@ namespace TesseractOCR.Helpers.Helpers
             }
             catch (Exception ex)
             {
-                throw new Exception("Bir hata oluştu.");
+                throw new Exception("An error occurred.");
             }
             
         }
