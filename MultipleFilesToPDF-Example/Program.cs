@@ -11,7 +11,7 @@ namespace Tesseract.ConsoleDemo
             string workingDirectory = Environment.CurrentDirectory;
             string currentProjectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
             string fileName = "phototest.tif";
-            string pdfFileName = "sample.pdf";
+            string pdfFileName = "test.pdf";
             string mergedFileName = "merge.pdf";
 
             string imagePath = Path.Combine(currentProjectDirectory, fileName);
@@ -22,7 +22,7 @@ namespace Tesseract.ConsoleDemo
             using (StreamCollection streamCollection = new StreamCollection())
             {
                 FileStream imageStream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
-                FileStream pdfStream = new FileStream(pdfPath, FileMode.Open, FileAccess.Read);
+                FileStream pdfStream = new FileStream(pdfPath, FileMode.Open, FileAccess.ReadWrite);
                 streamCollection.Streams.Add(imageStream);
                 streamCollection.Streams.Add(pdfStream);
                 PDFHelper.SavePDFByFilesTest(dataPath, streamCollection.Streams,mergedFilePath);

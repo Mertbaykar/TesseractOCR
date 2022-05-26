@@ -38,6 +38,9 @@ namespace TesseractOCR.Helpers.Helpers
 
                 using (GhostscriptRasterizer rasterizer = new GhostscriptRasterizer())
                 {
+                    rasterizer.CustomSwitches.Add("-dNEWPDF=false");
+                    // For resolution of image
+                    rasterizer.CustomSwitches.Add("-r300x300");
                     rasterizer.Open(pdfStream, lastInstalledVersion,false);
 
                     for (int i = 1; i <= rasterizer.PageCount; i++)
@@ -63,7 +66,7 @@ namespace TesseractOCR.Helpers.Helpers
                                     {
                                         foreach (Block block in blocks)
                                         {
-                                            foreach (Layout.Paragraph para in block.Paragraphs)
+                                            foreach (Paragraph para in block.Paragraphs)
                                             {
                                                 string paragraphToAdd = "";
 

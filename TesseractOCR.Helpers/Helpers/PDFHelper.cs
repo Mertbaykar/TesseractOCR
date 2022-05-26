@@ -481,7 +481,7 @@ namespace TesseractOCR.Core
                     else
                     {
                         List<string> pdfPageText = TesseractHelper.GetPDFPageText(stream,dataPath);
-                        textParagraphs.Concat(pdfPageText);
+                        textParagraphs.AddRange(pdfPageText);
                     }
                 }
                 // Extract text from single image
