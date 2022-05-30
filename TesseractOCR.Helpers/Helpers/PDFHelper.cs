@@ -430,7 +430,7 @@ namespace TesseractOCR.Core
 
         }
 
-        public static PdfDocument SavePDFByFilesTest(string dataPath, List<Stream> fileStreams, string savePath, string? PDFtitle = null)
+        public static PdfDocument SavePDFByFilesTest(string dataPath, List<Stream> fileStreams, string savePath, string imagesFolder, string? PDFtitle = null)
         {
             try
             {
@@ -480,7 +480,7 @@ namespace TesseractOCR.Core
                     // PDF ise
                     else
                     {
-                        List<string> pdfPageText = TesseractHelper.GetPDFPageText(stream,dataPath);
+                        List<string> pdfPageText = TesseractHelper.GetPDFPageText(stream,dataPath, imagesFolder);
                         textParagraphs.AddRange(pdfPageText);
                     }
                 }

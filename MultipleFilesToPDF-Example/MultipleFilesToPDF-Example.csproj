@@ -12,4 +12,8 @@
     <ProjectReference Include="..\TesseractOCR.Helpers\TesseractOCR.Helpers.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
 </Project>

@@ -19,17 +19,18 @@ using TesseractOCR.Layout;
 using Ghostscript.NET.Rasterizer;
 using Ghostscript.NET;
 using Ghostscript.NET.Processor;
+using PdfSharp;
 
 namespace TesseractOCR.Helpers.Helpers
 {
     public static class TesseractHelper
     {
-        public static List<string> GetPDFPageText(Stream pdfStream, string dataPath)
+        public static List<string> GetPDFPageText(Stream pdfStream, string dataPath, string imagesFolder)
         {
 
             try
             {
-                int dpi = 100;
+                int dpi = 300;
                 GhostscriptVersionInfo lastInstalledVersion =
                GhostscriptVersionInfo.GetLastInstalledVersion(
                        GhostscriptLicense.GPL | GhostscriptLicense.AFPL,
@@ -40,14 +41,20 @@ namespace TesseractOCR.Helpers.Helpers
                 {
                     rasterizer.CustomSwitches.Add("-dNEWPDF=false");
                     // For resolution of image
-                    rasterizer.CustomSwitches.Add("-r300x300");
+                    rasterizer.CustomSwitches.Add("-r500x500");
+                    //rasterizer.CustomSwitches.Add("-sPAPERSIZE=a4");
+                    //rasterizer.CustomSwitches.Add("-sDEFAULTPAPERSIZE=a4");
+                    //rasterizer.CustomSwitches.Add("-dPDFFitPage");
                     rasterizer.Open(pdfStream, lastInstalledVersion,false);
 
                     for (int i = 1; i <= rasterizer.PageCount; i++)
                     {
                         // pdf page as image
                         System.Drawing.Image pageImage = rasterizer.GetPage(dpi, i);
-
+                        string fileName = i.ToString() + ".png";
+                        string imagePath = Path.Combine(imagesFolder, fileName);
+                        pageImage.Save(imagePath, System.Drawing.Imaging.ImageFormat.Png);
+                        
                         using (Engine engine = new Engine(dataPath, Language.English, EngineMode.TesseractAndLstm))
                         {
                             MemoryStream memoryStream = new MemoryStream();
